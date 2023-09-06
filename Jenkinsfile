@@ -15,10 +15,10 @@ def cancelPreviousBuilds() {
             /* Then stop it */
             exec.interrupt(
                     Result.ABORTED,
-                    new CauseOfInterruption.UserInterruption("Aborted by #${currentBuild.number}")
+                    new CauseOfInterruption.UserInterruption("Aborted by #${currentBuild.getBuildCauses()[0].shortDescription}")
                 )
-            println("Aborted previously running build #${build.number}")
-        }
+            println("Aborted previously running build #${build.number}"
+)        }
     }
 }
 
